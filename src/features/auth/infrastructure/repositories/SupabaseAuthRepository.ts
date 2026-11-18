@@ -19,9 +19,6 @@ export class SupabaseAuthRepository implements IAuthRepository {
     password: string,
     username: string,
   ): Promise<User | null> {
-    // El perfil lo crea el trigger `on_auth_user_created` en la base de datos,
-    // leyendo `username` desde raw_user_meta_data. Así no depende de tener
-    // sesión activa (con "Confirm email" activado, signUp no devuelve sesión).
     const { data, error } = await supabase.auth.signUp({
       email,
       password,

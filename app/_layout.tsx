@@ -3,6 +3,7 @@ import { Slot, useRouter, useSegments } from "expo-router";
 import { useEffect } from "react";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
 import { supabase } from "@shared/infrastructure/supabase/client";
+import { colors } from "@shared/theme/theme";
 import { useAuthStore } from "@features/auth/presentation/store/authStore";
 import { SupabaseAuthRepository } from "@features/auth/infrastructure/repositories/SupabaseAuthRepository";
 
@@ -49,7 +50,7 @@ function AuthGuard() {
       <Slot />
       {!initialized && (
         <View style={styles.loading}>
-          <ActivityIndicator size="large" color="#007AFF" />
+          <ActivityIndicator size="large" color={colors.primary} />
         </View>
       )}
     </>
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: "#fff",
+    backgroundColor: colors.background,
     justifyContent: "center",
     alignItems: "center",
   },
