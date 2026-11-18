@@ -2,13 +2,12 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "strict": true,
+    "baseUrl": ".",
+    "lib": ["ESNext"],
+    "ignoreDeprecations": "6.0",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ],
-      "@/assets/*": [
-        "./assets/*"
-      ]
+      "@features/*": ["src/features/*"],
+      "@shared/*": ["src/shared/*"]
     }
   },
   "include": [
